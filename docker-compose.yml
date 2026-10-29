@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./app
+    ports:
+      - "80:80"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=tododb
+      - DB_USER=todouser
+      - DB_PASSWORD=todopassword
+      - APP_VERSION=${GITHUB_SHA:-1.0.0}
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: mariadb:10.11
+    environment:
+      - MYSQL_DATABASE=tododb
+      - MYSQL_USER=todouser
+      - MYSQL_PASSWORD=todopassword
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+volumes:
+  db_data:
