@@ -1,5 +1,8 @@
 # # 🚀 To-Do Cloud: Despliegue Continuo (PHP & MariaDB)
 
+Integrantes: 
+Franco Ortiz, Bastian Meneses, Bastian Román, Angel Meneses y Joaquín Espinoza 
+
 Este repositorio contiene el código fuente, la infraestructura contenerizada y el pipeline de Integración y Despliegue Continuo (CI/CD) para un gestor de tareas (To-Do App) desarrollado en PHP y MariaDB. 
 
 El objetivo de este proyecto es garantizar que **cada cambio aprobado llegue automáticamente a la nube** en Microsoft Azure, sin intervención manual en el servidor, manteniendo la persistencia de los datos en todo momento.
